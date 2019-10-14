@@ -1,6 +1,6 @@
 # zcss
 
-Minimal nested css preprocessor in ~30 lines of pure bash!
+Minimal nested CSS preprocessor in ~30 lines of pure bash!
 
 ```scss
 :root {
