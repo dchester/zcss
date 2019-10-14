@@ -3,6 +3,8 @@
 Minimal nested CSS preprocessor in ~30 lines of pure bash!
 
 ```scss
+/* button.zcss */
+
 :root {
   --blue: #8098d4;
 }
@@ -32,11 +34,11 @@ Compile zcss to css:
 $ cat button.zcss | zcss > button.css
 ```
 
-### Syntax
+## Syntax
 
-This preprocessor implements just two core features inspired by scss / less / and the `css-nesting` spec: implicit nesting, and the ampersand selector.
+This preprocessor implements just two core features inspired by [SCSS](https://sass-lang.com/documentation/syntax) / [Less](http://lesscss.org/) / and the [`css-nesting` spec](https://tabatkins.github.io/specs/css-nesting/) -- implicit nesting, and the ampersand selector.
 
-##### Implicit nesting
+#### Implicit nesting
 
 ```scss
 section {
@@ -51,7 +53,9 @@ section {
  */
 ```
 
-##### Ampersand selector
+Each property must be on its own line, separate from its selector.
+
+#### Ampersand selector
 
 ```scss
 section {
@@ -66,5 +70,5 @@ section {
  */
 ```
 
-The ampersand must appear exclusively at the beginning of the selector.
+The ampersand must appear exclusively at the beginning of the selector (similarly to the `&` in [css-nesting](https://tabatkins.github.io/specs/css-nesting/))
 
