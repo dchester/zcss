@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+dir=`dirname $0`
+zcss="$dir/../zcss"
+
+files="$dir/*.zcss"
+i=1
+
+echo $i..$(echo $files | wc -w)
+
+for file in $files; do
+  output=$(diff -w <(cat $file | $zcss) <(cat $file | scss -t expanded))
+  if (( $? == 0 )); then
+    echo ok $i $(basename ${file/.zcss})
+    let i=i+1
+  else
+    echo not ok $i "$output"
+  fi
+done

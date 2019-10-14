@@ -1,0 +1,12 @@
+a {
+  display: run-in;
+  pointer-events: auto;
+
+  b {
+    border-spacing: 0;
+
+    c d {
+      user-select: none;
+    }
+  }
+}

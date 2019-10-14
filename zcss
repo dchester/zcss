@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -f
+declare -a stack
+
+while IFS= read line; do
+  if [[ $line =~ ^[[:space:]]*@.*\{ ]]; then
+    echo $line
+    stack+=( "" )
+  elif [[ $line =~ \{[[:space:]]*$ ]]; then
+    open=1
+    stack+=( "$(echo ${line/\{/})" )
+  elif [[ $line =~ [[:space:]]*\}[[:space:]]*$ ]]; then
+    close=1
+    [[ -z ${stack[-1]} ]] && echo '}'
+    unset 'stack[-1]'
+  else
+    [[ -z "$line" ]] && continue
+    if (( opened && (open || close) )); then
+      opened=0
+      close=0
+      echo '}'
+    fi
+    if (( open || close )); then
+      opened=1
+      open=0
+      sel=${stack[@]}
+      echo ${sel// \&/} "{"
+    fi
+    echo "$line"
+  fi
+done && (( $close )) && echo '}'
+

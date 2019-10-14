@@ -1,0 +1,8 @@
+@media (max-width: 12450px) {
+  p {
+    a {
+      line-height: 2;
+    }
+  }
+}
+
