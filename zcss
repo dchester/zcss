@@ -3,8 +3,8 @@
 set -f
 declare -a stack
 
-while IFS= read line; do
-  if [[ $line =~ ^[[:space:]]*@.*\{ ]]; then
+while IFS= read -r line; do
+  if [[ $line =~ ^[[:space:]]*@[msdk].*\{ ]]; then
     echo $line
     stack+=( "" )
   elif [[ $line =~ \{[[:space:]]*$ ]]; then

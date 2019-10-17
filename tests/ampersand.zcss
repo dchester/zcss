@@ -2,6 +2,10 @@ a {
   text-decoration: none;
   font-size: 30px;
 
+  &.active {
+    display: block;
+  }
+
   &:hover {
     background: magenta;
   }

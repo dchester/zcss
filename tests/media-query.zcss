@@ -1,8 +1,6 @@
-@media (max-width: 12450px) {
-  p {
-    a {
-      line-height: 2;
-    }
+@media screen and (min-width: 900px) {
+  article {
+    padding: 1rem 3rem;
   }
 }
 
