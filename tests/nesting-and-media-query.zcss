@@ -1,0 +1,22 @@
+.top-level {
+  color: blue;
+
+  &:nth-child(1) {
+    color: red;
+  }
+
+  &:nth-child(1) {
+    color: green;
+  }
+
+  &:nth-child(1) {
+    color: yellow;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  article {
+    padding: 1rem 3rem;
+  }
+}
+
